@@ -26,7 +26,7 @@ export default () => {
 
     const { data: servers, error } = useSWR<PaginatedResult<Server>>(
         [ '/api/client/servers', (showOnlyAdmin && rootAdmin), page ],
-        () => getServers({ page, type: (showOnlyAdmin && rootAdmin) ? 'admin' : undefined }),
+        () => getServers({ page, type: (showOnlyAdmin && rootAdmin) ? 'admin-all' : undefined }),
     );
 
     useEffect(() => {
@@ -53,7 +53,7 @@ export default () => {
             {rootAdmin &&
             <div css={tw`mb-2 flex justify-end items-center`}>
                 <p css={tw`uppercase text-xs text-neutral-400 mr-2`}>
-                    {showOnlyAdmin ? 'Showing others\' servers' : 'Showing your servers'}
+                    {showOnlyAdmin ? 'Showing all servers' : 'Showing your servers'}
                 </p>
                 <Switch
                     name={'show_all_servers'}
