@@ -60,9 +60,6 @@ services:
     ports:
       - "80:80"
       - "443:443"
-    links:
-      - database
-      - cache
     volumes:
       - "/srv/pterodactyl/var/:/app/var/"
       - "/srv/pterodactyl/nginx/:/etc/nginx/conf.d/"
